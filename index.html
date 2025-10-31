@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio | Desenvolvedor Fullstack</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+      transition: all 0.3s ease;
+    }
+
+    body {
+      background: #0d1117 url('assets/tech_background.jpg') no-repeat center top;
+      background-size: cover;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17,17,17,0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
+    }
+
+    header h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header h2 span {
+      color: #00bcd4;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    .toggle-dark {
+      cursor: pointer;
+      font-size: 1.3rem;
+      color: #e0e0e0;
+    }
+
+    /* INÍCIO */
+    section#inicio {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(160deg, rgba(13,17,23,0.85) 40%, rgba(10,25,47,0.85) 100%);
+      padding-top: 80px;
+    }
+
+    #inicio img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid #00bcd4;
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
+
+    #inicio h1 {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+
+    #inicio h3 {
+      font-weight: 400;
+      color: #00bcd4;
+      margin-bottom: 15px;
+    }
+
+    .icones {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .icones a {
+      font-size: 1.6rem;
+      color: white;
+    }
+
+    .icones a:hover {
+      color: #00bcd4;
+    }
+
+    /* SOBRE */
+    #sobre {
+      padding: 100px 20px;
+      background: linear-gradient(180deg, #111 0%, #0d1117 100%);
+      text-align: center;
+    }
+
+    #sobre h2 {
+      color: #00bcd4;
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    #sobre .linha {
+      width: 70px;
+      height: 3px;
+      background: #00bcd4;
+      margin: 10px auto 40px;
+      border-radius: 5px;
+    }
+
+    #sobre p {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.7;
+      color: #c7c7c7;
+    }
+
+    .skills {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .skill {
+      background: #1b1f24;
+      border-radius: 8px;
+      padding: 20px;
+      width: 120px;
+      transition: transform 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      background: #00bcd4;
+      color: #fff;
+    }
+
+    .skill img {
+      width: 35px;
+      height: 35px;
+      margin-bottom: 10px;
+    }
+
+    /* PROJETOS */
+    #projetos {
+      background: #0d1117;
+      padding: 100px 20px;
+    }
+
+    #projetos h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #00bcd4;
+      margin-bottom: 60px;
+    }
+
+    .projetos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .projeto-card {
+      background: #161b22;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      position: relative;
+    }
+
+    .projeto-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .projeto-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .projeto-card .conteudo {
+      padding: 20px;
+    }
+
+    .projeto-card h3 {
+      color: #00bcd4;
+      margin-bottom: 10px;
+    }
+
+    .projeto-card p {
+      color: #c7c7c7;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .tecs span {
+      background: #00bcd4;
+      color: #fff;
+      padding: 5px 8px;
+      border-radius: 5px;
+      margin-right: 5px;
+      font-size: 0.8rem;
+    }
+
+    .ver-projeto a {
+      color: #00bcd4;
+      font-weight: 600;
+    }
+
+    /* CONTATO */
+    #contato {
+      background: #111;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    #contato h2 {
+      font-size: 2rem;
+      color: #00bcd4;
+      margin-bottom: 10px;
+    }
+
+    .contato-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .contato-links a {
+      color: #00bcd4;
+      font-size: 1.2rem;
+    }
+
+    .contato-links a:hover {
+      color: #02d4ec;
+    }
+
+    /* BOTÃO TOPO */
+    #btnTopo {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    #btnTopo:hover {
+      background: #02d4ec;
+    }
+
+    /* BOTÃO MODO */
+    #btnModo {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      padding: 12px 15px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    #btnModo:hover {
+      background: #02d4ec;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0a0f13;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: 2px solid #00bcd4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* MODO CLARO */
+    body.light-mode {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    body.light-mode header {
+      background: rgba(245,245,245,0.95);
+      border-bottom: 1px solid #ccc;
+    }
+
+    body.light-mode nav a {
+      color: #111;
+    }
+
+    body.light-mode nav a:hover {
+      color: #00796b;
+    }
+
+    body.light-mode .skill:hover {
+      background: #00796b;
+      color: #fff;
+    }
+
+    body.light-mode .tecs span {
+      background: #00796b;
+    }
+
+    body.light-mode #btnTopo {
+      background: #00796b;
+    }
+
+    body.light-mode #btnModo {
+      background: #00796b;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Arthur<span>Oliveira</span></h2>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio">
+    <img src="assets/arthur.jpg" alt="Foto de perfil">
+    <h1>Olá, eu sou Arthur Oliveira</h1>
+    <h3>Desenvolvedor Fullstack</h3>
+    <div class="icones">
+      <a href="https://www.linkedin.com/in/arthurdati" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/arthurzinhors6" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:arthur.oliveiradati@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre mim</h2>
+    <div class="linha"></div>
+    <p>Sou estudante de Análise e Desenvolvimento de Sistemas e atuo como desenvolvedor Fullstack. Tenho paixão por tecnologia e gosto de transformar ideias em soluções práticas. Busco constantemente aprender novas ferramentas e linguagens, com foco em inovação e trabalho em equipe.</p>
+
+    <div class="skills">
+      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><br>JavaScript</div>
+      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><br>React</div>
+      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"><br>Node.js</div>
+      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"><br>Java</div>
+      <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"><br>MySQL</div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <h2>Meus Projetos</h2>
+    <div class="projetos-grid">
+      <div class="projeto-card">
+        <img src="assets/descmove.jpg" alt="Projeto DescMove">
+        <div class="conteudo">
+          <h3>DescMove</h3>
+          <p>Projeto criado com amigos (Marcos, Pedro, Vitor, Thaylor e Thayman) com o objetivo de facilitar a mobilidade urbana entre estudantes por meio de um sistema de caronas universitárias.</p>
+          <div class="tecs"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Node.js</span></div>
+          <div class="ver-projeto"><a href="#">Ver projeto →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <div class="linha"></div>
+    <div class="contato-links">
+      <a href="mailto:arthur.oliveiradati@gmail.com"><i class="fas fa-envelope"></i> arthur.oliveiradati@gmail.com</a>
+      <a href="https://github.com/arthurzinhors6" target="_blank"><i class="fab fa-github"></i> https://github.com/arthurzinhors6</a>
+      <a href="https://www.linkedin.com/in/arthurdati" target="_blank"><i class="fab fa-linkedin"></i> www.linkedin.com/in/arthurdati</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Desenvolvido por Arthur Oliveira
+  </footer>
+
+  <button id="btnTopo"><i class="fas fa-arrow-up"></i></button>
+  <button id="btnModo">🌙 Modo Escuro</button>
+
+  <script>
+    const btnTopo = document.getElementById("btnTopo");
+    const btnModo = document.getElementById("btnModo");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        btnTopo.style.display = "block";
+      } else {
+        btnTopo.style.display = "none";
+      }
+    });
+
+    btnTopo.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    btnModo.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      if(document.body.classList.contains("light-mode")){
+        btnModo.textContent = "🌙 Modo Escuro";
+      } else {
+        btnModo.textContent = "☀️ Modo Claro";
+      }
+    });
+  </script>
+
+</body>
+</html>
